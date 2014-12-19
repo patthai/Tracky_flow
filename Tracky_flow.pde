@@ -1,5 +1,11 @@
+// Tracky flow was developed by Pat Pataranutaporn
+// www.Patthai.org
+// the original code is from Learning Processing by Daniel Shiffman
 
 
+//----------------Processing code---------------
+
+//----------------Library----------------
 import processing.video.*;
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -9,10 +15,8 @@ Robot robot;
 boolean mouse = false;
 
 Capture video;
-// Previous Frame
 PImage prevFrame;
-// How different must a pixel be to be a "motion" pixel
-float threshold = 120;
+float threshold = 120; // Setting up the threshold 
 int pox = 0;
 int speed = 10;
 int mousex = 0;
@@ -21,21 +25,21 @@ int current_x = 0;
 
 
 void setup() {
-  
+//-----------Robot class for mouse pointer controlling--------------  
    try { 
     robot = new Robot();
   } 
   catch (AWTException e) {
     e.printStackTrace();
   }       
-  
+//-----------Video capturing--------------  
   size(320,240);
   video = new Capture(this, width, height, 40);
   prevFrame = createImage(video.width,video.height,RGB);
   video. start();
   
 }
-
+//-----------Screen drawing--------------  
 void draw() {
         int sumx = 0;
         int countx = 0;
@@ -58,7 +62,6 @@ void draw() {
   for (int x = 0; x < video.width; x ++) {
   for (int y = 0; y < video.height; y ++ ) {
 
-      
       //int loc = (width-1-x) + y*video.width;  
       int loc = x + y*video.width;        
       color current = video.pixels[loc];      
@@ -68,7 +71,9 @@ void draw() {
       float r1 = red(current); float g1 = green(current); float b1 = blue(current);
       float r2 = red(previous); float g2 = green(previous); float b2 = blue(previous);
       float diff = dist(r1,g1,b1,r2,g2,b2);
-     
+      
+//-----------Pixel colour analysis--------------   
+    
       if (diff > threshold) { 
  
         pixels[loc] = color(20);
@@ -76,9 +81,7 @@ void draw() {
               countx = countx+1;
               sumx = sumx + x;
           }
-              
-              
-        
+            
         
       } else 
       {
@@ -91,27 +94,30 @@ void draw() {
   
   updatePixels();
   
-   if (countx > 20){ 
-     pox = (sumx / countx);
+//-----------Robot class recall--------------  
+
+
+if (countx > 20){ // if total movement is larger than certain level.
+
+    pox = (sumx / countx); // find the center of movement.
     
     ellipse(width/2,10,10,10);
     mouse = true;
     //print("|",sumx,"_",countx,"|");
   }
   
-  else{mouse = false;}
-  ellipse(pox,height/2,10,10);
-  line(width/2, 0, width/2,height);
+   else{mouse = false;}
+   ellipse(pox,height/2,10,10);
+   line(width/2, 0, width/2,height);
   
-  if (mouse) {
-            //robot.keyPress(KeyEvent.VK_SPACE); //fire spacebar event
-            //robot.keyRelease(KeyEvent.VK_SPACE);
+  //-----------Scaling up tracked position to entire screen--------------    
+  
+ if (mouse) {
+
     
          int ratio = (displayWidth/(width-170));
           mousex = ((width - pox)*ratio)-300;
          
-         
-   
         }
        
        if(abs(current_x-mousex)<20){
@@ -133,8 +139,5 @@ void draw() {
          speed = abs(current_x-mousex)/8;
        }
        
-       
-
-  
 }
 
