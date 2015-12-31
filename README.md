@@ -1,4 +1,4 @@
-#Tracky Project
+#Tracky FLow Project
 by: **Pat Pataranutaporn**
 http://www.patthai.org
 
@@ -9,6 +9,18 @@ http://www.patthai.org
 
 http://web.patthai.org/Tracky_flow.html
 
+
+#About
+Tracky is a software that connect the human gesture to computer controlling system, by tracking color and movement. This software was develop in 24 hr in non-stop coding event “Codeday” portland. The aim of this project is to create a platform that allow student, artist and beginner coder to easily connect their project to the computer vision algorithm.
+
+#Download
+http://web.patthai.org/Tracky_flow.html
+
+There are several options for download. The source code is Java based and need to be run on Processing. The UI was developed in Swishmax.
+[x] Mac OS X
+[x ]Windows 32 bit
+[x] Windows 64
+[x] UISource Code
 
 
 The MIT License (MIT)
