@@ -17,11 +17,13 @@ Tracky is a software that connect the human gesture to computer controlling syst
 http://web.patthai.org/Tracky_flow.html
 
 There are several options for download. The source code is Java based and need to be run on Processing. The UI was developed in Swishmax.
-[x] Mac OS X
-[x ]Windows 32 bit
-[x] Windows 64
-[x] UISource Code
 
+- [x] Mac OS X
+- [x]Windows 32 bit
+- [x] Windows 64
+- [x] UISource Code
+
+#License
 
 The MIT License (MIT)
 
