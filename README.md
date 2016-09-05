@@ -3,7 +3,7 @@ by: **Pat Pataranutaporn**
 http://www.patthai.org
 
 
-<img src='http://web.patthai.org/images/FUI/Tracky_flow.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://patthai.org/images/FUI/Tracky_flow.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
